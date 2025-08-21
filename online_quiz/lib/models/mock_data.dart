@@ -27,7 +27,7 @@ class DummyData {
         name: 'Information Assurance and Security I',
         code: 'IAS101',
         instructor: 'Prof. Maria Santos',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_001',
@@ -37,7 +37,6 @@ class DummyData {
             totalQuestions: 20,
             timeLimit: 30,
             isCompleted: true,
-            difficulty: 'Medium',
             result: QuizResult(
               id: 'result_001',
               quizId: 'quiz_001',
@@ -56,7 +55,6 @@ class DummyData {
             totalQuestions: 25,
             timeLimit: 45,
             isCompleted: false,
-            difficulty: 'Hard',
           ),
         ],
       ),
@@ -65,7 +63,7 @@ class DummyData {
         name: 'Programming Languages with Compiler',
         code: 'PLC201',
         instructor: 'Prof. John Cruz',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_003',
@@ -75,7 +73,6 @@ class DummyData {
             totalQuestions: 15,
             timeLimit: 40,
             isCompleted: true,
-            difficulty: 'Hard',
             result: QuizResult(
               id: 'result_002',
               quizId: 'quiz_003',
@@ -94,7 +91,6 @@ class DummyData {
             totalQuestions: 18,
             timeLimit: 50,
             isCompleted: false,
-            difficulty: 'Hard',
           ),
         ],
       ),
@@ -103,7 +99,7 @@ class DummyData {
         name: 'Software Engineering I',
         code: 'SE101',
         instructor: 'Prof. Ana Reyes',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_005',
@@ -113,7 +109,6 @@ class DummyData {
             totalQuestions: 22,
             timeLimit: 35,
             isCompleted: true,
-            difficulty: 'Medium',
             result: QuizResult(
               id: 'result_003',
               quizId: 'quiz_005',
@@ -132,7 +127,6 @@ class DummyData {
             totalQuestions: 20,
             timeLimit: 40,
             isCompleted: false,
-            difficulty: 'Medium',
           ),
         ],
       ),
@@ -141,7 +135,7 @@ class DummyData {
         name: 'Automata Theory and Formal Languages',
         code: 'ATFL301',
         instructor: 'Prof. Robert Garcia',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_007',
@@ -151,7 +145,6 @@ class DummyData {
             totalQuestions: 16,
             timeLimit: 45,
             isCompleted: true,
-            difficulty: 'Hard',
             result: QuizResult(
               id: 'result_004',
               quizId: 'quiz_007',
@@ -170,7 +163,6 @@ class DummyData {
             totalQuestions: 18,
             timeLimit: 50,
             isCompleted: false,
-            difficulty: 'Hard',
           ),
         ],
       ),
@@ -179,7 +171,7 @@ class DummyData {
         name: 'Computer Architecture and Organization',
         code: 'CAO201',
         instructor: 'Prof. Lisa Mendoza',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_009',
@@ -189,7 +181,6 @@ class DummyData {
             totalQuestions: 24,
             timeLimit: 40,
             isCompleted: true,
-            difficulty: 'Medium',
             result: QuizResult(
               id: 'result_005',
               quizId: 'quiz_009',
@@ -208,7 +199,6 @@ class DummyData {
             totalQuestions: 20,
             timeLimit: 35,
             isCompleted: false,
-            difficulty: 'Medium',
           ),
         ],
       ),
@@ -217,7 +207,7 @@ class DummyData {
         name: 'Pagsasaling Pampanitikan',
         code: 'FIL201',
         instructor: 'Prof. Carmen Dela Cruz',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_011',
@@ -227,7 +217,6 @@ class DummyData {
             totalQuestions: 18,
             timeLimit: 30,
             isCompleted: true,
-            difficulty: 'Easy',
             result: QuizResult(
               id: 'result_006',
               quizId: 'quiz_011',
@@ -246,7 +235,6 @@ class DummyData {
             totalQuestions: 15,
             timeLimit: 25,
             isCompleted: false,
-            difficulty: 'Medium',
           ),
         ],
       ),
@@ -255,7 +243,7 @@ class DummyData {
         name: 'Professional Ethics in IT/ Social & Professional I',
         code: 'ETHICS101',
         instructor: 'Prof. Michael Torres',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_013',
@@ -265,7 +253,6 @@ class DummyData {
             totalQuestions: 20,
             timeLimit: 30,
             isCompleted: true,
-            difficulty: 'Easy',
             result: QuizResult(
               id: 'result_007',
               quizId: 'quiz_013',
@@ -284,7 +271,6 @@ class DummyData {
             totalQuestions: 22,
             timeLimit: 35,
             isCompleted: false,
-            difficulty: 'Medium',
           ),
         ],
       ),
@@ -293,7 +279,7 @@ class DummyData {
         name: 'Mobile Programming 1',
         code: 'MP101',
         instructor: 'Prof. Sarah Villanueva',
-        credits: 3,
+        units: 3,
         quizzes: [
           Quiz(
             id: 'quiz_015',
@@ -303,7 +289,6 @@ class DummyData {
             totalQuestions: 25,
             timeLimit: 45,
             isCompleted: true,
-            difficulty: 'Medium',
             result: QuizResult(
               id: 'result_008',
               quizId: 'quiz_015',
@@ -322,7 +307,6 @@ class DummyData {
             totalQuestions: 20,
             timeLimit: 40,
             isCompleted: false,
-            difficulty: 'Hard',
           ),
         ],
       ),

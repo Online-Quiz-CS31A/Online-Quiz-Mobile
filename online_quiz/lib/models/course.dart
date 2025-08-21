@@ -6,7 +6,7 @@ class Course {
   final String code;
   final List<Quiz> quizzes;
   final String instructor;
-  final int credits;
+  final int units;
 
   Course({
     required this.id,
@@ -14,6 +14,6 @@ class Course {
     required this.code,
     required this.quizzes,
     required this.instructor,
-    required this.credits,
+    required this.units,
   });
 }

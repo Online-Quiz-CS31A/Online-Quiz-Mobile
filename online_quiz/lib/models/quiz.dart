@@ -9,8 +9,6 @@ class Quiz {
   final int timeLimit; // in minutes
   final bool isCompleted;
   final QuizResult? result;
-  final String difficulty;
-
   Quiz({
     required this.id,
     required this.title,
@@ -20,6 +18,5 @@ class Quiz {
     required this.timeLimit,
     required this.isCompleted,
     this.result,
-    required this.difficulty,
   });
 }
