@@ -5,6 +5,7 @@ class Quiz {
   final String title;
   final String courseId;
   final DateTime dueDate;
+  final DateTime dateAdded;
   final int totalQuestions;
   final int timeLimit; // in minutes
   final bool isCompleted;
@@ -14,6 +15,7 @@ class Quiz {
     required this.title,
     required this.courseId,
     required this.dueDate,
+    required this.dateAdded,
     required this.totalQuestions,
     required this.timeLimit,
     required this.isCompleted,
