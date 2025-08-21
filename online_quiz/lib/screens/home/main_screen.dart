@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'home_tab.dart';
-import 'quiz_tab.dart';
-import 'results_tab.dart';
-import 'profile_tab.dart';
-import 'courses_tab.dart';
-import 'notification_screen.dart';
+import '../quizzes/quiz_tab.dart';
+import '../results/results_tab.dart';
+import '../profile/profile_tab.dart';
+import '../courses/courses_tab.dart';
+import '../notifications/notification_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
