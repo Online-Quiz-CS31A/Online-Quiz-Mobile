@@ -17,10 +17,12 @@ A comprehensive Flutter mobile application designed for ACLC students to take on
 - **Edit Profile**: Profile editing placeholder for future enhancements
 
 ### 🚧 In Development
-- Registration screen
-- Quiz taking interface
+- Quiz taking interface (Multiple Choice, Identification, Images)
 - Enhanced settings functionality
 - Enhanced profile editing
+- Teacher Side Screen UI
+- Admin Side Screen UI
+- Role-Based Access Control
 - Backend integration
 - State management implementation
 
