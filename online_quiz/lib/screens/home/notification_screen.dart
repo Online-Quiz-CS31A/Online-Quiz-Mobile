@@ -396,39 +396,47 @@ class _NotificationScreenState extends State<NotificationScreen> {
     final totalPages = (readNotifications.length / itemsPerPage).ceil();
     
     return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade50,
-        border: Border(top: BorderSide(color: Colors.grey.shade200)),
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextButton.icon(
+          IconButton(
             onPressed: currentPage > 0 ? () {
               setState(() {
                 currentPage--;
               });
             } : null,
             icon: const Icon(Icons.chevron_left),
-            label: const Text('Previous'),
-          ),
-          Text(
-            'Page ${currentPage + 1} of $totalPages',
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
-              color: Colors.grey,
+            iconSize: 20,
+            padding: const EdgeInsets.all(8),
+            constraints: const BoxConstraints(
+              minWidth: 32,
+              minHeight: 32,
             ),
           ),
-          TextButton.icon(
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 12),
+            child: Text(
+              '${currentPage + 1} / $totalPages',
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+          IconButton(
             onPressed: currentPage < totalPages - 1 ? () {
               setState(() {
                 currentPage++;
               });
             } : null,
             icon: const Icon(Icons.chevron_right),
-            label: const Text('Next'),
-            iconAlignment: IconAlignment.end,
+            iconSize: 20,
+            padding: const EdgeInsets.all(8),
+            constraints: const BoxConstraints(
+              minWidth: 32,
+              minHeight: 32,
+            ),
           ),
         ],
       ),
