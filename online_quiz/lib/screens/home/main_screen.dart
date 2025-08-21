@@ -3,6 +3,7 @@ import 'home_tab.dart';
 import 'quiz_tab.dart';
 import 'results_tab.dart';
 import 'profile_tab.dart';
+import 'courses_tab.dart';
 import 'notification_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _tabs = [
     const HomeTab(),
+    const CoursesTab(),
     const QuizTab(),
     const ResultsTab(),
     const ProfileTab(),
@@ -24,6 +26,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<String> _tabTitles = [
     'Home',
+    'Courses',
     'Quiz',
     'Results',
     'Profile',
@@ -69,6 +72,10 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Courses',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.quiz),
