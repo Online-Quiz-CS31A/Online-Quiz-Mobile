@@ -32,52 +32,39 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // ACLC Logo
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                     color: const Color(0xFF2196F3).withValues(alpha: 0.1),
-                     borderRadius: BorderRadius.circular(75),
-                   ),
-                  child: Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        'assets/images/aclclogo.png',
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.contain,
-                        errorBuilder: (context, error, stackTrace) {
-                          return const Icon(
-                            Icons.school,
-                            size: 80,
-                            color: Color(0xFF2196F3),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
+                Image.asset(
+                  'assets/images/aclclogo-nobg.png',
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(
+                      Icons.school,
+                      size: 150,
+                      color: Color(0xFF2196F3),
+                    );
+                  },
                 ),
                 const SizedBox(height: 40),
                 
                 // Welcome Message
-                const Text(
+                Text(
                   'Welcome to',
-                  style: TextStyle(
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Colors.grey[600],
                     fontSize: 20,
-                    color: Colors.black54,
                   ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
                 
                 // App Title
-                const Text(
+                Text(
                   'ACLC\'s Online Quiz Application',
-                  style: TextStyle(
-                    fontSize: 26,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2196F3),
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 26,
                   ),
                   textAlign: TextAlign.center,
                 ),

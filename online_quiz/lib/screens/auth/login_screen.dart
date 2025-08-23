@@ -50,38 +50,18 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _buildHeader() {
     return Column(
       children: [
-        Container(
-          width: 140,
-          height: 140,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(70),
-            boxShadow: [
-              BoxShadow(
-                color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
-                blurRadius: 20,
-                offset: const Offset(0, 10),
-              ),
-            ],
-          ),
-          child: Center(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                'assets/images/aclclogo.png',
-                width: 90,
-                height: 90,
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  return Icon(
-                    Icons.school,
-                    size: 70,
-                    color: Theme.of(context).primaryColor,
-                  );
-                },
-              ),
-            ),
-          ),
+        Image.asset(
+          'assets/images/aclclogo-nobg.png',
+          width: 180,
+          height: 180,
+          fit: BoxFit.contain,
+          errorBuilder: (context, error, stackTrace) {
+            return Icon(
+              Icons.school,
+              size: 130,
+              color: Theme.of(context).primaryColor,
+            );
+          },
         ),
         const SizedBox(height: 24),
         Text(
