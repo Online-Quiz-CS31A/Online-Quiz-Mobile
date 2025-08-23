@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/quiz.dart';
 import '../../models/course.dart';
+import '../../widgets/stat_card.dart';
 
 class QuizDetailScreen extends StatelessWidget {
   final Quiz quiz;
@@ -275,29 +276,29 @@ class QuizDetailScreen extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: _buildStatCard(
-                  'Questions',
-                  quiz.totalQuestions.toString(),
-                  Icons.help_outline,
-                  Colors.blue,
+                child: StatCard(
+                  icon: Icons.help_outline,
+                  title: 'Questions',
+                  value: quiz.totalQuestions.toString(),
+                  color: Colors.blue,
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: _buildStatCard(
-                  'Time Limit',
-                  '${quiz.timeLimit}m',
-                  Icons.timer_outlined,
-                  Colors.orange,
+                child: StatCard(
+                  icon: Icons.timer_outlined,
+                  title: 'Time Limit',
+                  value: '${quiz.timeLimit}m',
+                  color: Colors.orange,
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: _buildStatCard(
-                  'Status',
-                  quiz.isCompleted ? 'Done' : 'Pending',
-                  quiz.isCompleted ? Icons.check_circle : Icons.schedule,
-                  quiz.isCompleted ? Colors.green : Colors.orange,
+                child: StatCard(
+                  icon: quiz.isCompleted ? Icons.check_circle : Icons.schedule,
+                  title: 'Status',
+                  value: quiz.isCompleted ? 'Done' : 'Pending',
+                  color: quiz.isCompleted ? Colors.green : Colors.orange,
                 ),
               ),
             ],
@@ -307,41 +308,7 @@ class QuizDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatCard(String label, String value, IconData icon, Color color) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withValues(alpha: 0.2)),
-      ),
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            color: color,
-            size: 24,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: color,
-            ),
-          ),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.grey.shade600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
 
   Widget _buildResultSection() {
     final result = quiz.result!;

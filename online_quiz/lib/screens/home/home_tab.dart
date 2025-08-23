@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/mock_data.dart';
 import '../../models/user.dart';
 import '../../models/quiz.dart';
+import '../../widgets/stat_card.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
@@ -110,7 +111,7 @@ class HomeTab extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: _buildStatCard(
+              child: StatCard(
                 icon: Icons.quiz_outlined,
                 title: 'Total Quizzes',
                 value: totalQuizzes.toString(),
@@ -119,7 +120,7 @@ class HomeTab extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: _buildStatCard(
+              child: StatCard(
                 icon: Icons.check_circle_outline,
                 title: 'Completed',
                 value: completedQuizzes.toString(),
@@ -132,7 +133,7 @@ class HomeTab extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: _buildStatCard(
+              child: StatCard(
                 icon: Icons.trending_up,
                 title: 'Average Score',
                 value: '${averageScore.toStringAsFixed(1)}%',
@@ -141,7 +142,7 @@ class HomeTab extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: _buildStatCard(
+              child: StatCard(
                 icon: Icons.school_outlined,
                 title: 'Courses',
                 value: DummyData.getUser().courses.length.toString(),
@@ -154,62 +155,7 @@ class HomeTab extends StatelessWidget {
     );
   }
   
-  Widget _buildStatCard({
-    required IconData icon,
-    required String title,
-    required String value,
-    required Color color,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            spreadRadius: 1,
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Icon(
-              icon,
-              color: color,
-              size: 24,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            value,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey.shade600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
   
   Widget _buildProgressSection(User user) {
     return Column(
