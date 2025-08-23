@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/mock_data.dart';
 import '../../models/notification_item.dart';
+import '../../widgets/empty_state_widget.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -51,35 +52,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   }
 
   Widget _buildEmptyState() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.notifications_none,
-            size: 80,
-            color: Colors.grey,
-          ),
-          SizedBox(height: 16),
-          Text(
-            'No Notifications',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            'You\'re all caught up!',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-    );
+    return EmptyStatePresets.notifications();
   }
 
   Widget _buildNotificationCard(NotificationItem notification) {

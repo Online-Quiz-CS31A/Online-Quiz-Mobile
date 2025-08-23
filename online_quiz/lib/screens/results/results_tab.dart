@@ -4,6 +4,7 @@ import '../../models/quiz_result.dart';
 import '../../models/course.dart';
 import '../../models/mock_data.dart';
 import '../quizzes/quiz_result_screen.dart';
+import '../../widgets/empty_state_widget.dart';
 
 class ResultsTab extends StatefulWidget {
   const ResultsTab({super.key});
@@ -191,35 +192,7 @@ class _ResultsTabState extends State<ResultsTab> {
 
   Widget _buildResultsList(List<QuizResultWithDetails> results, int totalPages) {
     if (results.isEmpty) {
-      return const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.quiz_outlined,
-              size: 80,
-              color: Colors.grey,
-            ),
-            SizedBox(height: 16),
-            Text(
-              'No quiz results found',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey,
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              'Complete some quizzes to see your results here',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
-      );
+      return EmptyStatePresets.quizResults();
     }
 
     final paginatedResults = _getPaginatedResults(results);
