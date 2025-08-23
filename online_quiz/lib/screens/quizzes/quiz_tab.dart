@@ -4,6 +4,7 @@ import '../../models/user.dart';
 import '../../models/quiz.dart';
 import '../../models/course.dart';
 import 'quiz_detail_screen.dart';
+import '../../widgets/empty_state_widget.dart';
 
 class QuizTab extends StatefulWidget {
   const QuizTab({super.key});
@@ -417,79 +418,7 @@ class _QuizTabState extends State<QuizTab> {
   }
 
   Widget _buildEmptyState() {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.quiz_outlined,
-              size: 80,
-              color: Colors.grey.shade400,
-            ),
-            const SizedBox(height: 24),
-            Text(
-              'No Quizzes Available',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey.shade700,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'You have no quizzes assigned at the moment.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey.shade600,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Check back later for new quizzes from your courses.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey.shade600,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 32),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.blue.shade50,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: Colors.blue.shade200,
-                  width: 1,
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.info_outline,
-                    color: Colors.blue.shade600,
-                    size: 20,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    'Quizzes will appear here when assigned by instructors',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.blue.shade700,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    return EmptyStatePresets.quizzes();
   }
 
   List<Quiz> _getAllQuizzes(User user) {

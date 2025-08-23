@@ -3,6 +3,7 @@ import '../../models/mock_data.dart';
 import '../../models/user.dart';
 import '../../models/course.dart';
 import 'course_detail_screen.dart';
+import '../../widgets/empty_state_widget.dart';
 
 class CoursesTab extends StatelessWidget {
   const CoursesTab({super.key});
@@ -59,79 +60,7 @@ class CoursesTab extends StatelessWidget {
   }
   
   Widget _buildEmptyState() {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.school_outlined,
-              size: 80,
-              color: Colors.grey.shade400,
-            ),
-            const SizedBox(height: 24),
-            Text(
-              'No Enrolled Courses',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey.shade700,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'You have no enrolled courses online.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey.shade600,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'If you have issues, please contact the school admin.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey.shade600,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 32),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.blue.shade50,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: Colors.blue.shade200,
-                  width: 1,
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.info_outline,
-                    color: Colors.blue.shade600,
-                    size: 20,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    'Contact school admin for enrollment',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.blue.shade700,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    return EmptyStatePresets.courses();
   }
 
   Widget _buildCoursesGrid(BuildContext context, List<Course> courses) {

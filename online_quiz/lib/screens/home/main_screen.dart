@@ -36,6 +36,18 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Container(
+          margin: const EdgeInsets.all(8.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(6.0),
+            child: Image.asset(
+              'assets/images/aclclogo-nobg.png',
+              fit: BoxFit.contain,
+              width: 48,
+              height: 48,
+            ),
+          ),
+        ),
         title: Text(
           _tabTitles[_currentIndex],
           style: const TextStyle(
