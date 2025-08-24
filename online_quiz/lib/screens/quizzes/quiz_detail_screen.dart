@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/quiz.dart';
 import '../../models/course.dart';
 import '../../widgets/stat_card.dart';
+import '../../widgets/info_card.dart';
 
 class QuizDetailScreen extends StatelessWidget {
   final Quiz quiz;
@@ -186,64 +187,43 @@ class QuizDetailScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          _buildInfoRow(Icons.help_outline, 'Questions', '${quiz.totalQuestions} questions'),
+          InfoCardPresets.compact(
+            icon: Icons.help_outline,
+            title: 'Questions',
+            value: '${quiz.totalQuestions} questions',
+          ),
           const SizedBox(height: 12),
-          _buildInfoRow(Icons.timer_outlined, 'Time Limit', '${quiz.timeLimit} minutes'),
+          InfoCardPresets.compact(
+            icon: Icons.timer_outlined,
+            title: 'Time Limit',
+            value: '${quiz.timeLimit} minutes',
+          ),
           const SizedBox(height: 12),
-          _buildInfoRow(Icons.calendar_today_outlined, 'Due Date', _formatDateTime(quiz.dueDate)),
+          InfoCardPresets.compact(
+            icon: Icons.calendar_today_outlined,
+            title: 'Due Date',
+            value: _formatDateTime(quiz.dueDate),
+          ),
           const SizedBox(height: 12),
-          _buildInfoRow(Icons.add_circle_outline, 'Date Added', _formatDateTime(quiz.dateAdded)),
+          InfoCardPresets.compact(
+            icon: Icons.add_circle_outline,
+            title: 'Date Added',
+            value: _formatDateTime(quiz.dateAdded),
+          ),
           if (course != null) ...[
             const SizedBox(height: 12),
-            _buildInfoRow(Icons.person_outline, 'Instructor', course!.instructor),
+            InfoCardPresets.compact(
+              icon: Icons.person_outline,
+              title: 'Instructor',
+              value: course!.instructor,
+            ),
           ],
         ],
       ),
     );
   }
 
-  Widget _buildInfoRow(IconData icon, String label, String value) {
-    return Row(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.blue.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(
-            icon,
-            color: Colors.blue,
-            size: 20,
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey.shade600,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
+
 
   Widget _buildQuizStats() {
     return Container(

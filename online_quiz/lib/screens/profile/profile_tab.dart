@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/mock_data.dart';
 import '../../models/user.dart';
+import '../../widgets/info_card.dart';
 import '../settings/settings_screen.dart';
 import 'edit_profile_screen.dart';
 
@@ -61,14 +62,14 @@ class ProfileTab extends StatelessWidget {
             const SizedBox(height: 32),
             
             // Profile Information Cards
-            _buildInfoCard(
+            InfoCardPresets.profile(
               icon: Icons.email_outlined,
               title: 'Email',
               value: user.email,
             ),
             const SizedBox(height: 16),
             
-            _buildInfoCard(
+            InfoCardPresets.profile(
                icon: Icons.school_outlined,
                title: 'Enrolled Courses',
                value: '${user.courses.length} courses',
@@ -140,67 +141,5 @@ class ProfileTab extends StatelessWidget {
     );
   }
   
-  Widget _buildInfoCard({
-    required IconData icon,
-    required String title,
-    required String value,
-  }) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            spreadRadius: 1,
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.blue.shade50,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(
-              icon,
-              color: Colors.blue.shade600,
-              size: 24,
-            ),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey.shade600,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  value,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
 }
