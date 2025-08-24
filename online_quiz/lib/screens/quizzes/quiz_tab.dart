@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../models/mock_data.dart';
-import '../../models/user.dart';
 import '../../models/quiz.dart';
 import '../../models/course.dart';
-import 'quiz_detail_screen.dart';
+import '../../models/user.dart';
+import '../../models/mock_data.dart';
 import '../../widgets/empty_state_widget.dart';
+import '../../widgets/filter_tab_widget.dart';
+import 'quiz_detail_screen.dart';
 
 class QuizTab extends StatefulWidget {
   const QuizTab({super.key});
@@ -89,40 +90,15 @@ class _QuizTabState extends State<QuizTab> {
   }
 
   Widget _buildFilterTabs() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: _filterOptions.map((filter) {
-          final isSelected = _selectedFilter == filter;
-          return Expanded(
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _selectedFilter = filter;
-                  _currentPage = 0; // Reset to first page when filter changes
-                });
-              },
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: BoxDecoration(
-                  color: isSelected ? Colors.blue : Colors.grey.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Text(
-                  filter,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.grey.shade600,
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-            ),
-          );
-        }).toList(),
-      ),
+    return FilterTabPresets.quizStyle(
+      options: _filterOptions,
+      selectedFilter: _selectedFilter,
+      onFilterChanged: (filter) {
+        setState(() {
+          _selectedFilter = filter;
+          _currentPage = 0; // Reset to first page when filter changes
+        });
+      },
     );
   }
 

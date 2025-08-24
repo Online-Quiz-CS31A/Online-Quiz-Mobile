@@ -54,7 +54,7 @@ class FilterTabWidget extends StatelessWidget {
                 : const EdgeInsets.symmetric(horizontal: 4),
             padding: isScrollable
                 ? const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
-                : const EdgeInsets.symmetric(vertical: 12),
+                : const EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
               color: isSelected ? selectedColor : defaultUnselectedColor,
               borderRadius: BorderRadius.circular(borderRadius),
@@ -125,11 +125,12 @@ class FilterTabPresets {
       options: options,
       selectedFilter: selectedFilter,
       onFilterChanged: onFilterChanged,
-      isScrollable: true,
+      isScrollable: false,
       borderRadius: 16.0,
       showBorder: true,
       unselectedColor: Colors.transparent,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: EdgeInsets.zero,
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       backgroundColor: Colors.white,
     );
   }
