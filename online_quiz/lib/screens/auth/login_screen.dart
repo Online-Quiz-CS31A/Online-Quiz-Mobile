@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../utils/app_routes.dart';
 import '../../widgets/custom_text_field.dart';
+import 'login_screen_animations.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,7 +10,8 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen>
+    with TickerProviderStateMixin, LoginScreenAnimations {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -17,7 +19,15 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
 
   @override
+  void initState() {
+    super.initState();
+    initializeLoginAnimations();
+    startLoginAnimations();
+  }
+
+  @override
   void dispose() {
+    disposeLoginAnimations();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -34,11 +44,11 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 40),
-              _buildHeader(),
+              _buildAnimatedHeader(),
               const SizedBox(height: 40),
-              _buildLoginCard(),
+              _buildAnimatedLoginCard(),
               const SizedBox(height: 24),
-              _buildForgotPassword(),
+              _buildAnimatedForgotPassword(),
               const SizedBox(height: 40),
             ],
           ),
@@ -47,66 +57,87 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildAnimatedHeader() {
     return Column(
       children: [
-        Image.asset(
-          'assets/images/aclclogo-nobg.png',
-          width: 180,
-          height: 180,
-          fit: BoxFit.contain,
-          errorBuilder: (context, error, stackTrace) {
-            return Icon(
-              Icons.school,
-              size: 130,
-              color: Theme.of(context).primaryColor,
-            );
-          },
+        // Animated Logo
+        createAnimatedWidget(
+          fadeAnimation: logoFadeAnimation,
+          slideAnimation: logoSlideAnimation,
+          child: Image.asset(
+            'assets/images/aclclogo-nobg.png',
+            width: 180,
+            height: 180,
+            fit: BoxFit.contain,
+            errorBuilder: (context, error, stackTrace) {
+              return Icon(
+                Icons.school,
+                size: 130,
+                color: Theme.of(context).primaryColor,
+              );
+            },
+          ),
         ),
         const SizedBox(height: 24),
-        Text(
-          'ACLC Online Quiz',
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).primaryColor,
-            fontSize: 28,
+        // Animated Title
+        createAnimatedWidget(
+          fadeAnimation: titleFadeAnimation,
+          slideAnimation: titleSlideAnimation,
+          child: Text(
+            'ACLC Online Quiz',
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).primaryColor,
+              fontSize: 28,
+            ),
           ),
         ),
         const SizedBox(height: 8),
-        Text(
-          'Welcome back! Please sign in to continue',
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: Colors.grey[600],
-            fontSize: 16,
+        // Animated Subtitle
+        createAnimatedWidget(
+          fadeAnimation: subtitleFadeAnimation,
+          slideAnimation: subtitleSlideAnimation,
+          child: Text(
+            'Welcome back! Please sign in to continue',
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: Colors.grey[600],
+              fontSize: 16,
+            ),
           ),
         ),
       ],
     );
   }
 
-  Widget _buildLoginCard() {
-    return Container(
-      padding: const EdgeInsets.all(32.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          _buildLoginForm(),
-          const SizedBox(height: 32),
-          _buildLoginButton(),
-        ],
+  Widget _buildAnimatedLoginCard() {
+    return createAnimatedWidget(
+      fadeAnimation: formFadeAnimation,
+      slideAnimation: formSlideAnimation,
+      child: Container(
+        padding: const EdgeInsets.all(32.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            _buildLoginForm(),
+            const SizedBox(height: 32),
+            _buildLoginButton(),
+          ],
+        ),
       ),
     );
   }
+
+
 
   Widget _buildLoginForm() {
     return Form(
@@ -209,44 +240,50 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildForgotPassword() {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.blue[50],
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.blue[100]!),
-      ),
-      child: Column(
-        children: [
-          Icon(
-            Icons.info_outline,
-            color: Colors.blue[600],
-            size: 24,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Need Account Access?',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Colors.blue[800],
+  Widget _buildAnimatedForgotPassword() {
+    return createAnimatedWidget(
+      fadeAnimation: forgotPasswordFadeAnimation,
+      slideAnimation: forgotPasswordSlideAnimation,
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.blue[50],
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.blue[100]!),
+        ),
+        child: Column(
+          children: [
+            Icon(
+              Icons.info_outline,
+              color: Colors.blue[600],
+              size: 24,
             ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'All accounts are managed by the school administration.\nPlease contact your admin for login credentials.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.blue[700],
-              height: 1.4,
+            const SizedBox(height: 8),
+            Text(
+              'Need Account Access?',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Colors.blue[800],
+              ),
             ),
-          ),
-        ],
+            const SizedBox(height: 4),
+            Text(
+              'All accounts are managed by the school administration.\nPlease contact your admin for login credentials.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[700],
+                height: 1.4,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
+
+
 
 
 
