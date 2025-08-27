@@ -17,9 +17,11 @@ class DummyData {
       studentId: 'C23-01-7557-MAN121',
       courses: courses,
       notifications: notifications,
-      bio: 'Computer Science student passionate about technology and learning.',
-      phoneNumber: '912 345 6789',
-      emergencyContact: '987 654 3210',
+      bio: 'Computer Science student passionate about mobile development and AI.',
+      phoneNumber: '+63 912 345 6789',
+      emergencyContact: '+63 998 765 4321',
+      profileImageUrl: 'assets/images/aclclogo-nobg.png',
+      degree: 'Bachelor of Science in Computer Science',
     );
   }
 
