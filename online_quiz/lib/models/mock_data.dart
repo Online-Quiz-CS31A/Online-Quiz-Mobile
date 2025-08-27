@@ -17,6 +17,9 @@ class DummyData {
       studentId: 'C23-01-7557-MAN121',
       courses: courses,
       notifications: notifications,
+      bio: 'Computer Science student passionate about technology and learning.',
+      phoneNumber: '912 345 6789',
+      emergencyContact: '987 654 3210',
     );
   }
 

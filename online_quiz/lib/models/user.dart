@@ -8,6 +8,9 @@ class User {
   final String studentId;
   final List<Course> courses;
   final List<NotificationItem> notifications;
+  final String? bio;
+  final String? phoneNumber;
+  final String? emergencyContact;
 
   User({
     required this.id,
@@ -16,5 +19,8 @@ class User {
     required this.studentId,
     required this.courses,
     required this.notifications,
+    this.bio,
+    this.phoneNumber,
+    this.emergencyContact,
   });
 }
