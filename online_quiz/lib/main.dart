@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'screens/onboarding/onboarding_screen.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/home/main_screen.dart';
@@ -6,7 +7,11 @@ import 'utils/app_routes.dart';
 import 'utils/app_theme.dart';
 
 void main() {
-  runApp(const ACLCQuizApp());
+  runApp(
+    const ProviderScope(
+      child: ACLCQuizApp(),
+    ),
+  );
 }
 
 class ACLCQuizApp extends StatelessWidget {

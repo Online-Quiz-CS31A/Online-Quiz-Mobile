@@ -8,6 +8,11 @@ class User {
   final String studentId;
   final List<Course> courses;
   final List<NotificationItem> notifications;
+  final String bio;
+  final String phoneNumber;
+  final String emergencyContact;
+  final String profileImageUrl;
+  final String degree;
 
   User({
     required this.id,
@@ -16,5 +21,13 @@ class User {
     required this.studentId,
     required this.courses,
     required this.notifications,
+    required this.bio,
+    required this.phoneNumber,
+    required this.emergencyContact,
+    required this.profileImageUrl,
+    required this.degree,
   });
+
+  // Getter for the primary course (first course if available)
+  Course? get course => courses.isNotEmpty ? courses.first : null;
 }
